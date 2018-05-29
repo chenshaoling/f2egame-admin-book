@@ -270,31 +270,38 @@ export default {
 <p>&#x6709;&#x4E86;&#x7EC4;&#x4EF6;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#x7EC4;&#x4EF6;&#x5F00;&#x53D1;&#x9875;&#x9762;&#x4E86;&#x3002;</p>
 <h3 id="&#x7EC4;&#x4EF6;&#x7EC4;&#x5408;&#x6210;&#x9875;&#x9762;">&#x7EC4;&#x4EF6;&#x7EC4;&#x5408;&#x6210;&#x9875;&#x9762;</h3>
 <p>&#x9875;&#x9762;&#x7684;&#x5F00;&#x53D1;&#x548C;&#x7EC4;&#x4EF6;&#x57FA;&#x672C;&#x4E00;&#x6837;&#xFF0C;&#x7531;&#x4E0D;&#x540C;&#x7684;&#x7EC4;&#x4EF6;&#x7EC4;&#x5408;&#x6210;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x5927;&#x7EC4;&#x4EF6;&#x3002;&#x8FD9;&#x4E2A;&#x5927;&#x7684;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x914D;&#x7F6E;&#x8DEF;&#x7531;&#x5BF9;&#x5E94;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;&#x5728;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x3002;</p>
-<p>&#x7EC4;&#x6210;&#x9875;&#x9762;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x5C55;&#x793A;&#x51FA;&#x6765;&#x3002;&#x4F46;&#x662F;&#x9875;&#x9762;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x8DEF;&#x7531;&#x6765;&#x8BBF;&#x95EE;&#x624D;&#x53EF;&#x4EE5;&#x5C55;&#x793A;&#xFF0C;&#x4E0B;&#x9762;&#x5C31;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x8DEF;&#x7531;&#x6765;&#x6253;&#x5F00;&#x9875;&#x9762;&#x4E86;&#x3002;</p>
+<p>&#x7EC4;&#x6210;&#x9875;&#x9762;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x5C55;&#x793A;&#x51FA;&#x6765;&#x3002;&#x4F46;&#x662F;&#x9875;&#x9762;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x8DEF;&#x7531;&#x6765;&#x8BBF;&#x95EE;&#x624D;&#x53EF;&#x4EE5;&#x5C55;&#x793A;&#xFF0C;&#x4E0B;&#x9762;&#x5C31;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x8DEF;&#x7531;&#x6765;&#x6253;&#x5F00;&#x9875;&#x9762;&#x4E86;&#x3002;&#x6BD4;&#x5982;&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;Button&#x7EC4;&#x4EF6;&#xFF0C;&#x7EC4;&#x6210;&#x4E00;&#x4E2A;&#x5177;&#x6709;3&#x4E2A;Button&#x7EC4;&#x4EF6;&#x7684;&#x9875;&#x9762;&#x3002;</p>
+<p>&#x5728;component&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;test/test.vue&#x6587;&#x4EF6;</p>
+<pre><code>&lt;template&gt;
+    &lt;div&gt;
+        &lt;Button/&gt;
+        &lt;Button/&gt;
+        &lt;Button/&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    import Button from &apos;../../components/top.vue&apos;&#xFF1B;//&#x5982;&#x679C;&#x9700;&#x8981;&#x5F15;&#x7528;Button&#x7EC4;&#x4EF6;
+    export default {
+    }
+&lt;/script&gt;
+</code></pre><p>&#x8FD9;&#x6837;&#x5C31;&#x5B8C;&#x6210;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x9875;&#x9762;&#x3002;</p>
 <h3 id="&#x914D;&#x7F6E;&#x8DEF;&#x7531;">&#x914D;&#x7F6E;&#x8DEF;&#x7531;</h3>
 <p>&#x5728;router&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#xFF0C;menu.js&#x4E3B;&#x8981;&#x914D;&#x7F6E;&#x5DE6;&#x4FA7;&#x83DC;&#x5355;&#x8DEF;&#x7531;&#xFF0C;router.js&#x4E3B;&#x8981;&#x914D;&#x7F6E;&#x5176;&#x4ED6;&#x8DF3;&#x8F6C;&#x7684;&#x8DEF;&#x7531;&#x3002;&#x4E0B;&#x9762;&#x4EE5;router.js&#x6587;&#x4EF6;&#x4E3A;&#x4F8B;&#x3002;</p>
 <ol>
-<li>&#x5F15;&#x5165;&#x9875;&#x9762;&#x7EC4;&#x4EF6;,&#x4F8B;&#x5982;<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> Demand <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../views/demand/Demand.vue&apos;</span>;
-<span class="hljs-keyword">import</span> error403 <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../views/errorpage/403.vue&apos;</span>;
+<li>&#x5F15;&#x5165;&#x9875;&#x9762;&#x7EC4;&#x4EF6;,&#x4F8B;&#x5982;&#x914D;&#x7F6E;&#x4E0A;&#x9762;&#x7684;test&#x7EC4;&#x4EF6;&#x5230;&#x8DEF;&#x7531;<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> Test <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../views/test/Test.vue&apos;</span>;
 </code></pre>
 </li>
 <li><p>&#x914D;&#x7F6E;&#x8DEF;&#x7531;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> Routers = [{
-       path: <span class="hljs-string">&apos;/&apos;</span>,  <span class="hljs-comment">//&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;hash&#x8DEF;&#x5F84;</span>
-       redirect: <span class="hljs-string">&apos;/demand&apos;</span>,  <span class="hljs-comment">//&#x91CD;&#x5B9A;&#x5411;&#x8DEF;&#x5F84;</span>
-       name: <span class="hljs-string">&apos;&#x9996;&#x9875;&apos;</span>,   <span class="hljs-comment">//&#x8DEF;&#x7531;&#x540D;&#x79F0;</span>
+       path: <span class="hljs-string">&apos;/test&apos;</span>,  <span class="hljs-comment">//&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;hash&#x8DEF;&#x5F84;</span>
+       <span class="hljs-comment">//redirect: &apos;/demand&apos;,  //&#x91CD;&#x5B9A;&#x5411;&#x8DEF;&#x5F84;(&#x53EF;&#x9009;)</span>
+       component: Test,   <span class="hljs-comment">//&#x8DEF;&#x7531;&#x6620;&#x5C04;&#x7684;&#x7EC4;&#x4EF6;</span>
+       name: <span class="hljs-string">&apos;&#x6D4B;&#x8BD5;&#x9875;&#x9762;&apos;</span>,   <span class="hljs-comment">//&#x8DEF;&#x7531;&#x540D;&#x79F0;</span>
+       <span class="hljs-comment">//hidden: true,   //&#x5982;&#x679C;&#x662F;&#x5728;&#x5DE6;&#x4FA7;&#x83DC;&#x5355;&#x680F;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x63A7;&#x5236;&#x83DC;&#x5355;&#x663E;&#x793A;&#x9690;&#x85CF;</span>
        meta: {   <span class="hljs-comment">//&#x5176;&#x4ED6;&#x914D;&#x7F6E;</span>
            id: <span class="hljs-number">1</span>,    <span class="hljs-comment">//&#x6743;&#x9650;id</span>
            icon: <span class="hljs-string">&apos;fa-dashboard&apos;</span>,   <span class="hljs-comment">//&#x83DC;&#x5355;&#x56FE;&#x6807;</span>
        },
-   },
-   {
-       path: <span class="hljs-string">&apos;/403&apos;</span>,
-       component: error403,   <span class="hljs-comment">//&#x8DEF;&#x7531;&#x6620;&#x5C04;&#x7684;&#x7EC4;&#x4EF6;</span>
-       hidden: <span class="hljs-literal">true</span>,   <span class="hljs-comment">//&#x5982;&#x679C;&#x662F;&#x5728;&#x5DE6;&#x4FA7;&#x83DC;&#x5355;&#x680F;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x63A7;&#x5236;&#x83DC;&#x5355;&#x663E;&#x793A;&#x9690;&#x85CF;</span>
-       meta: {
-           id: <span class="hljs-number">2</span>
-       }
    },
 
 ]
@@ -345,7 +352,7 @@ export default {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"简单使用","level":"1.3","depth":1,"next":{"title":"权限管理","level":"1.4","depth":1,"path":"docs/权限管理.md","ref":"docs/权限管理.md","articles":[]},"previous":{"title":"开发步骤","level":"1.2.2","depth":2,"path":"docs/开发步骤.md","ref":"docs/开发步骤.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/简单使用.md","mtime":"2018-05-29T13:30:38.375Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-29T15:08:27.698Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"简单使用","level":"1.3","depth":1,"next":{"title":"权限管理","level":"1.4","depth":1,"path":"docs/权限管理.md","ref":"docs/权限管理.md","articles":[]},"previous":{"title":"开发步骤","level":"1.2.2","depth":2,"path":"docs/开发步骤.md","ref":"docs/开发步骤.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/简单使用.md","mtime":"2018-05-29T15:27:24.819Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-29T15:28:17.015Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
