@@ -1,0 +1,375 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>webpack介绍 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="vue快速上手.html" />
+    
+    
+    <link rel="prev" href="权限管理.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    项目介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="环境搭建.html">
+            
+                <a href="环境搭建.html">
+            
+                    
+                    准备工作
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="环境搭建.html">
+            
+                <a href="环境搭建.html">
+            
+                    
+                    环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="开发步骤.html">
+            
+                <a href="开发步骤.html">
+            
+                    
+                    开发步骤
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="简单使用.html">
+            
+                <a href="简单使用.html">
+            
+                    
+                    简单使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="权限管理.html">
+            
+                <a href="权限管理.html">
+            
+                    
+                    权限管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="webpack介绍.html">
+            
+                <a href="webpack介绍.html">
+            
+                    
+                    webpack介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="vue快速上手.html">
+            
+                <a href="vue快速上手.html">
+            
+                    
+                    vue快速上手
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >webpack介绍</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="webpack&#x4ECB;&#x7ECD;">webpack&#x4ECB;&#x7ECD;</h1>
+<h3 id="&#x4EC0;&#x4E48;&#x662F;webpack">&#x4EC0;&#x4E48;&#x662F;WebPack</h3>
+<p>WebPack&#x53EF;&#x4EE5;&#x770B;&#x505A;&#x662F;&#x6A21;&#x5757;&#x6253;&#x5305;&#x673A;&#xFF1A;&#x5B83;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x662F;&#xFF0C;&#x5206;&#x6790;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x7ED3;&#x6784;&#xFF0C;&#x627E;&#x5230;JavaScript&#x6A21;&#x5757;&#x4EE5;&#x53CA;&#x5176;&#x5B83;&#x7684;&#x4E00;&#x4E9B;&#x6D4F;&#x89C8;&#x5668;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x8FD0;&#x884C;&#x7684;&#x62D3;&#x5C55;&#x8BED;&#x8A00;&#xFF08;Scss&#xFF0C;TypeScript&#x7B49;&#xFF09;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x548C;&#x6253;&#x5305;&#x4E3A;&#x5408;&#x9002;&#x7684;&#x683C;&#x5F0F;&#x4F9B;&#x6D4F;&#x89C8;&#x5668;&#x4F7F;&#x7528;&#x3002;</p>
+<h3 id="&#x4F7F;&#x7528;webpack">&#x4F7F;&#x7528;WebPack</h3>
+<p>Webpack&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x662F;&#xFF1A;&#x628A;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x5F53;&#x505A;&#x4E00;&#x4E2A;&#x6574;&#x4F53;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x7684;&#x4E3B;&#x6587;&#x4EF6;&#xFF08;&#x5982;&#xFF1A;index.js&#xFF09;&#xFF0C;Webpack&#x5C06;&#x4ECE;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5F00;&#x59CB;&#x627E;&#x5230;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x7684;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x6587;&#x4EF6;&#xFF0C;&#x4F7F;&#x7528;loaders&#x5904;&#x7406;&#x5B83;&#x4EEC;&#xFF0C;&#x6700;&#x540E;&#x6253;&#x5305;&#x4E3A;&#x4E00;&#x4E2A;&#xFF08;&#x6216;&#x591A;&#x4E2A;&#xFF09;&#x6D4F;&#x89C8;&#x5668;&#x53EF;&#x8BC6;&#x522B;&#x7684;JavaScript&#x6587;&#x4EF6;&#x3002;
+&#x6211;&#x4EEC;&#x9879;&#x76EE;&#x7684;webpack&#x914D;&#x7F6E;&#x6587;&#x4EF6;webpack.config.js,&#x4E3B;&#x8981;&#x914D;&#x7F6E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>&#x5165;&#x53E3;&#x548C;&#x8F93;&#x51FA;</p>
+<pre><code class="lang-javascript">    entry: <span class="hljs-string">&apos;./src/main.js&apos;</span>, <span class="hljs-comment">//&#x552F;&#x4E00;&#x5165;&#x53E3;&#x6587;&#x4EF6;</span>
+    output: {
+        path: path.resolve(__dirname, <span class="hljs-string">&apos;./dist&apos;</span>), <span class="hljs-comment">//&#x6253;&#x5305;&#x540E;&#x7684;&#x6587;&#x4EF6;&#x5B58;&#x653E;&#x7684;&#x5730;&#x65B9;&#xFF0C;__dirname&#xFF1A;node.js&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x5B83;&#x6307;&#x5411;&#x5F53;&#x524D;&#x6267;&#x884C;&#x811A;&#x672C;&#x6240;&#x5728;&#x7684;&#x76EE;&#x5F55;</span>
+        publicPath: <span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-comment">//&#x751F;&#x4EA7;&#x6A21;&#x5F0F;&#x4E0B;&#x66FF;&#x6362;&#x5185;&#x5D4C;&#x5230;css&#x3001;html&#x6587;&#x4EF6;&#x91CC;&#x7684;url&#x503C;,&#x6BD4;&#x5982;&#x56FE;&#x7247;url</span>
+        filename: <span class="hljs-string">&apos;js/build.js&apos;</span> <span class="hljs-comment">//&#x6253;&#x5305;&#x540E;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;</span>
+    },
+</code></pre>
+<p>&#x7F16;&#x8BD1;&#x89C4;&#x5219;,&#x4F7F;&#x7528;loaders&#x5904;&#x7406;&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-javascript">rules: [{ <span class="hljs-comment">//&#x7F16;&#x8BD1;html</span>
+        test: <span class="hljs-regexp">/\.html$/</span>,
+        use: [{
+            loader: <span class="hljs-string">&apos;html-loader&apos;</span>,
+            options: {
+                minimize: <span class="hljs-literal">true</span>
+            }
+        }]
+    }]
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x63D2;&#x4EF6;&#x5904;&#x7406;&#x4EFB;&#x52A1;&#xFF0C;&#x6BD4;&#x5982;&#x5206;&#x79BB;html</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">new</span> HtmlWebpackPlugin({ <span class="hljs-comment">//&#x62BD;&#x51FA;html</span>
+    filename: <span class="hljs-string">&apos;index.html&apos;</span>,
+    template: __dirname + <span class="hljs-string">&apos;/src/index.html&apos;</span>,
+    inject: <span class="hljs-literal">true</span>,
+    minify: {
+        collapseWhitespace: <span class="hljs-literal">false</span>,
+        removeAttributeQuotes: <span class="hljs-literal">false</span>
+    }
+})
+</code></pre>
+<p>&#x751F;&#x6210;source-map</p>
+<pre><code class="lang-javascript">devtool: <span class="hljs-string">&apos;#source-map&apos;</span> <span class="hljs-comment">//&#x751F;&#x6210;Source Maps&#xFF08;&#x4F7F;&#x8C03;&#x8BD5;&#x66F4;&#x5BB9;&#x6613;&#xFF09;</span>
+</code></pre>
+<p>&#x5F00;&#x542F;&#x672C;&#x5730;&#x670D;&#x52A1;&#x5668;</p>
+<pre><code class="lang-javascript">devServer: {
+    contentBase: __dirname + <span class="hljs-string">&apos;/dist&apos;</span>, <span class="hljs-comment">//&#x672C;&#x5730;&#x670D;&#x52A1;&#x5668;&#x6240;&#x52A0;&#x8F7D;&#x7684;&#x9875;&#x9762;&#x6240;&#x5728;&#x7684;&#x76EE;&#x5F55;</span>
+    historyApiFallback: <span class="hljs-literal">true</span>, <span class="hljs-comment">//&#x4E0D;&#x8DF3;&#x8F6C;</span>
+    noInfo: <span class="hljs-literal">true</span>,
+    overlay: <span class="hljs-literal">true</span>,
+    disableHostCheck: <span class="hljs-literal">true</span>
+}
+</code></pre>
+<p>&#x66F4;&#x591A;&#x8BE6;&#x7EC6;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x8BF7;&#x67E5;&#x770B;webpack.config.js</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="权限管理.html" class="navigation navigation-prev " aria-label="Previous page: 权限管理">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="vue快速上手.html" class="navigation navigation-next " aria-label="Next page: vue快速上手">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"webpack介绍","level":"1.5","depth":1,"next":{"title":"vue快速上手","level":"1.6","depth":1,"path":"docs/vue快速上手.md","ref":"docs/vue快速上手.md","articles":[]},"previous":{"title":"权限管理","level":"1.4","depth":1,"path":"docs/权限管理.md","ref":"docs/权限管理.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/webpack介绍.md","mtime":"2018-05-29T12:17:42.305Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-29T15:08:27.698Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
