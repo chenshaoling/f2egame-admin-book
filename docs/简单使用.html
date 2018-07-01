@@ -245,42 +245,136 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x7B80;&#x5355;&#x4F7F;&#x7528;">&#x7B80;&#x5355;&#x4F7F;&#x7528;</h1>
-<h3 id="&#x5F00;&#x53D1;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x9875;&#x9762;&#x7EC4;&#x4EF6;&#x6BD4;&#x5982;button">&#x5F00;&#x53D1;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x9875;&#x9762;&#x7EC4;&#x4EF6;,&#x6BD4;&#x5982;Button</h3>
+<h3 id="&#x5F00;&#x53D1;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x9875;&#x9762;&#x7EC4;&#x4EF6;&#x6BD4;&#x5982;&#x8868;&#x5355;&#x7EC4;&#x4EF6;&#xFF1A;myformvue">&#x5F00;&#x53D1;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x9875;&#x9762;&#x7EC4;&#x4EF6;,&#x6BD4;&#x5982;&#x8868;&#x5355;&#x7EC4;&#x4EF6;&#xFF1A;myForm.vue</h3>
 <ol>
-<li><p>&#x5728;components&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Button.vue&#x6587;&#x4EF6;&#xFF0C;&#x91CC;&#x9762;&#x8F93;&#x5165;html&#x6A21;&#x7248;&#x3002;<code>templat&#x91CC;&#x9762;&#x53EA;&#x5141;&#x8BB8;&#x6709;&#x4E00;&#x5C42;&#x8282;&#x70B9;</code></p>
+<li><p>&#x5728;components&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;myForm.vue&#x6587;&#x4EF6;&#xFF0C;&#x91CC;&#x9762;&#x8F93;&#x5165;html&#x6A21;&#x7248;&#x548C;script&#x3002;<code>templat&#x91CC;&#x9762;&#x53EA;&#x5141;&#x8BB8;&#x6709;&#x4E00;&#x5C42;&#x8282;&#x70B9;</code></p>
 <pre><code>&lt;template&gt;
-   &lt;div&gt;
-       /**&#x4F7F;&#x7528;&#x5F15;&#x8FDB;&#x6765;&#x7684;&#x7EC4;&#x4EF6;**/
-       &lt;Top/&gt;
-       &lt;button&gt;&#x6309;&#x94AE;&lt;button&gt;
-   &lt;/div&gt;
+   &lt;Form ref=&quot;formInline&quot; :model=&quot;formInline&quot; :rules=&quot;ruleInline&quot; inline&gt;
+       &lt;FormItem prop=&quot;user&quot;&gt;
+           &lt;Input type=&quot;text&quot; v-model=&quot;formInline.user&quot; placeholder=&quot;Username&quot;&gt;
+               &lt;Icon type=&quot;ios-person-outline&quot; slot=&quot;prepend&quot;&gt;&lt;/Icon&gt;
+           &lt;/Input&gt;
+       &lt;/FormItem&gt;
+       &lt;FormItem prop=&quot;password&quot;&gt;
+           &lt;Input type=&quot;password&quot; v-model=&quot;formInline.password&quot; placeholder=&quot;Password&quot;&gt;
+               &lt;Icon type=&quot;ios-locked-outline&quot; slot=&quot;prepend&quot;&gt;&lt;/Icon&gt;
+           &lt;/Input&gt;
+       &lt;/FormItem&gt;
+       &lt;FormItem&gt;
+           &lt;Button type=&quot;primary&quot; @click=&quot;handleSubmit(&apos;formInline&apos;)&quot;&gt;Signin&lt;/Button&gt;
+       &lt;/FormItem&gt;
+   &lt;/Form&gt;
 &lt;/template&gt;
-</code></pre></li>
-<li><p>&#x518D;&#x8F93;&#x5165;script &#x90E8;&#x5206;</p>
-<pre><code>&lt;script&gt;
-import Top from &apos;../components/top.vue&apos;&#xFF1B;//&#x5982;&#x679C;&#x9700;&#x8981;&#x5F15;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#xFF0C;&#x6211;&#x4EEC;import&#x8FDB;&#x6765;
-export default {
-   // &#x8FD9;&#x91CC;&#x5199;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5916;&#x9762;&#x8981;&#x5305;&#x8D77;&#x6765;&#x3002;
-   //export &#x7528;&#x6765;&#x5BFC;&#x51FA;&#x6A21;&#x5757;&#xFF0C;Vue &#x7684;&#x5355;&#x6587;&#x4EF6;&#x7EC4;&#x4EF6;&#x901A;&#x5E38;&#x9700;&#x8981;&#x5BFC;&#x51FA;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;
-   //&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x662F; Vue &#x5B9E;&#x4F8B;&#x7684;&#x9009;&#x9879;&#x5BF9;&#x8C61;&#xFF0C;&#x4EE5;&#x4FBF;&#x4E8E;&#x5728;&#x5176;&#x5B83;&#x5730;&#x65B9;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; import &#x5F15;&#x5165;&#x3002;
-}
+&lt;script&gt;
+   export default {
+       data () {
+           return {
+               formInline: {
+                   user: &apos;&apos;,
+                   password: &apos;&apos;
+               },
+               ruleInline: {
+                   user: [
+                       { required: true, message: &apos;Please fill in the user name&apos;, trigger: &apos;blur&apos; }
+                   ],
+                   password: [
+                       { required: true, message: &apos;Please fill in the password.&apos;, trigger: &apos;blur&apos; },
+                       { type: &apos;string&apos;, min: 6, message: &apos;The password length cannot be less than 6 bits&apos;, trigger: &apos;blur&apos; }
+                   ]
+               }
+           }
+       },
+       methods: {
+           handleSubmit(name) {
+               this.$refs[name].validate((valid) =&gt; {
+                   if (valid) {
+                       this.$Message.success(&apos;Success!&apos;);
+                   } else {
+                       this.$Message.error(&apos;Fail!&apos;);
+                   }
+               })
+           }
+       }
+   }
 &lt;/script&gt;
 </code></pre></li>
 </ol>
-<p>&#x6709;&#x4E86;&#x7EC4;&#x4EF6;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#x7EC4;&#x4EF6;&#x5F00;&#x53D1;&#x9875;&#x9762;&#x4E86;&#x3002;</p>
+<p>&#x7ED3;&#x679C;&#xFF1A;
+</p><p data-height="200" data-theme-id="" data-slug-hash="mKaeEo" data-default-tab="result" data-user="chenshaoling" class="codepen">See the Pen <a href="http://codepen.io/chenshaoling/pen/mKaeEo/" target="_blank"></a> by chenshaoling (<a href="http://codepen.io/chenshaoling" target="_blank">@chenshaoling</a>) on <a href="http://codepen.io" target="_blank">CodePen</a>.</p>
+(&#x6CE8;&#x610F;&#xFF1A;&#x4E0A;&#x9762;&#x7684;&#x6F14;&#x793A;&#x7ED3;&#x679C;&#x662F;&#x5C06;&#x7EC4;&#x4EF6;&#x6302;&#x8F7D;&#x5728;#app&#x4E0A;&#x6F14;&#x793A;&#x7684;&#xFF0C;&#x771F;&#x6B63;&#x5F00;&#x53D1;&#x65F6;&#x9700;&#x8981;&#x6302;&#x8F7D;&#x5230;&#x89C6;&#x56FE;&#x7EC4;&#x4EF6;&#x4E0A;&#x3002;&#x5176;&#x4E2D;html&#x90E8;&#x5206;&#x7684;&#x4EE3;&#x7801;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x975E;template/render&#x6A21;&#x5F0F;&#x4E0B;&#x7684;&#x5199;&#x6CD5;&#x3002;&#x53EA;&#x9700;&#x5173;&#x6CE8;&#x7EC4;&#x4EF6;&#x6548;&#x679C;&#x5C31;&#x597D;)<p></p>
+<p>2.&#x6709;&#x4E86;&#x7EC4;&#x4EF6;&#xFF0C;&#x4F46;&#x662F;&#x5E0C;&#x671B;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;&#x80FD;&#x591F;&#x6709;&#x4E2A;&#x6837;&#x5F0F;&#xFF0C;&#x6BD4;&#x5982;&#x60F3;&#x8981;&#x6709;&#x4E2A;&#x597D;&#x770B;&#x4E00;&#x70B9;&#x7684;&#x76D2;&#x5B50;&#x5305;&#x88F9;&#x4F4F;&#x7EC4;&#x4EF6;&#xFF0C;adminlte&#x4E2D;&#x6709;&#x5404;&#x79CD;&#x76D2;&#x5B50;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x3002;</p>
+<p><img src="../&#x9ED8;&#x8BA4;&#x76D2;&#x5B50;.png" alt="image">
+<img src="../&#x5404;&#x79CD;&#x6837;&#x5F0F;&#x7684;&#x76D2;&#x5B50;.png" alt="image">
+<img src="../solid&#x76D2;&#x5B50;.png" alt="image">
+<img src="../&#x5DE5;&#x5177;&#x76D2;&#x5B50;.png" alt="image"></p>
+<p>&#x6211;&#x4EEC;&#x9009;&#x62E9;&#x201C;&#x4E3B;&#x8981;&#x76D2;&#x5B50;&#x201D;&#x4F5C;&#x4E3A;&#x6F14;&#x793A;&#x3002;</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x76D2;&#x5B50;&#x7684;&#x4E3B;&#x8981;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>```
+&lt;!--  &#x9700;&#x8981;&#x7ED9;div&#x52A0;&#x4E2A;&#x7C7B;&#x540D;.box --&gt;
+&lt;div class=&quot;box&quot;&gt;
+    &lt;!-- &#x76D2;&#x5B50;&#x7684;&#x5934;&#x90E8;.box-header,&#x5982;&#x679C;&#x5934;&#x90E8;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x8FB9;&#x6846;&#x53EF;&#x4EE5;&#x5E26;&#x4E0A;.with-border --&gt;
+    &lt;div class=&quot;box-header with-border&quot;&gt;
+        &lt;!-- &#x76D2;&#x5B50;&#x7684;&#x6807;&#x9898;&#x4FE1;&#x606F; --&gt;
+        &lt;h3 class=&quot;box-title&quot;&gt;Default Box Example&lt;/h3&gt;
+        &lt;!-- &#x76D2;&#x5B50;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x9700;&#x8981;&#x52A0;&#x4E0A;.box-tools,&#x5982;&#x679C;&#x60F3;&#x628A;&#x5DE5;&#x5177;&#x5C55;&#x793A;&#x5728;&#x76D2;&#x5B50;&#x53F3;&#x4FA7;&#x9700;&#x8981;&#x52A0;&#x4E0A;&#x80FD;&#x53F3;&#x79FB;&#x7684;&#x7C7B;.pull-right --&gt;
+        &lt;div class=&quot;box-tools pull-right&quot;&gt;
+            &lt;!-- &#x6309;&#x94AE;Buttons, &#x6807;&#x7B7E;labels, &#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x4E1C;&#x897F;&#x90FD;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x5199;! --&gt;
+            &lt;!-- &#x6BD4;&#x5982;&#x60F3;&#x8981;&#x5728;&#x5DE5;&#x5177;&#x680F;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;.label --&gt;
+            &lt;span class=&quot;label label-primary&quot;&gt;Label&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- &#x76D2;&#x5B50;&#x7684;&#x4E3B;&#x4F53;&#x90E8;&#x5206;.box-body --&gt;
+    &lt;div class=&quot;box-body&quot;&gt;
+        The body of the box
+    &lt;/div&gt;
+    &lt;!-- &#x76D2;&#x5B50;&#x7684;&#x5E95;&#x90E8; --&gt;
+    &lt;div class=&quot;box-footer&quot;&gt;
+        The footer of the box
+    &lt;/div&gt;
+&lt;/div&gt;
+```
+</code></pre><p>&#x6839;&#x636E;&#x76D2;&#x5B50;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x7EC4;&#x4EF6;&#x653E;&#x5728;body&#x90E8;&#x5206;&#xFF0C;&#x7136;&#x540E;&#x7ED9;&#x7EC4;&#x4EF6;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;title&#x5728;header&#x90E8;&#x5206;&#xFF0C;&#x628A;&#x6309;&#x94AE;&#x76F8;&#x5173;&#x7684;&#x5143;&#x7D20;&#x653E;&#x5728;&#x76D2;&#x5B50;footer&#xFF0C;&#x6574;&#x7406;&#x4E4B;&#x540E;html&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<pre><code>```
+&lt;div class=&quot;box box-primary&quot;&gt;
+    &lt;div class=&quot;box-header with-border&quot;&gt;
+        &lt;h3 class=&quot;box-title&quot;&gt;&#x8868;&#x5355;&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;Form ref=&quot;formInline&quot; :model=&quot;formInline&quot; :rules=&quot;ruleInline&quot; inline&gt;
+        &lt;div class=&quot;box-body&quot;&gt;
+            &lt;FormItem prop=&quot;user&quot;&gt;
+            &lt;Input type=&quot;text&quot; v-model=&quot;formInline.user&quot; placeholder=&quot;Username&quot;&gt;
+                &lt;Icon type=&quot;ios-person-outline&quot; slot=&quot;prepend&quot;&gt;&lt;/Icon&gt;
+            &lt;/Input&gt;
+        &lt;/FormItem&gt;
+        &lt;FormItem prop=&quot;password&quot;&gt;
+            &lt;Input type=&quot;password&quot; v-model=&quot;formInline.password&quot; placeholder=&quot;Password&quot;&gt;
+                &lt;Icon type=&quot;ios-locked-outline&quot; slot=&quot;prepend&quot;&gt;&lt;/Icon&gt;
+            &lt;/Input&gt;
+        &lt;/FormItem&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;box-footer&quot;&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary pull-right&quot;&gt;Sign in&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/Form&gt;
+&lt;/div&gt;
+```
+</code></pre><p>&#x7ED3;&#x679C;&#xFF1A;
+</p><p data-height="300" data-theme-id="" data-slug-hash="oymoRa" data-default-tab="result" data-user="chenshaoling" class="codepen">See the Pen <a href="http://codepen.io/chenshaoling/pen/oymoRa/" target="_blank"></a> by chenshaoling (<a href="http://codepen.io/chenshaoling" target="_blank">@chenshaoling</a>) on <a href="http://codepen.io" target="_blank">CodePen</a>.</p><p></p>
 <h3 id="&#x7EC4;&#x4EF6;&#x7EC4;&#x5408;&#x6210;&#x9875;&#x9762;">&#x7EC4;&#x4EF6;&#x7EC4;&#x5408;&#x6210;&#x9875;&#x9762;</h3>
 <p>&#x9875;&#x9762;&#x7684;&#x5F00;&#x53D1;&#x548C;&#x7EC4;&#x4EF6;&#x57FA;&#x672C;&#x4E00;&#x6837;&#xFF0C;&#x7531;&#x4E0D;&#x540C;&#x7684;&#x7EC4;&#x4EF6;&#x7EC4;&#x5408;&#x6210;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x5927;&#x7EC4;&#x4EF6;&#x3002;&#x8FD9;&#x4E2A;&#x5927;&#x7684;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x914D;&#x7F6E;&#x8DEF;&#x7531;&#x5BF9;&#x5E94;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;&#x5728;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x3002;</p>
-<p>&#x7EC4;&#x6210;&#x9875;&#x9762;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x5C55;&#x793A;&#x51FA;&#x6765;&#x3002;&#x4F46;&#x662F;&#x9875;&#x9762;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x8DEF;&#x7531;&#x6765;&#x8BBF;&#x95EE;&#x624D;&#x53EF;&#x4EE5;&#x5C55;&#x793A;&#xFF0C;&#x4E0B;&#x9762;&#x5C31;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x8DEF;&#x7531;&#x6765;&#x6253;&#x5F00;&#x9875;&#x9762;&#x4E86;&#x3002;&#x6BD4;&#x5982;&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;Button&#x7EC4;&#x4EF6;&#xFF0C;&#x7EC4;&#x6210;&#x4E00;&#x4E2A;&#x5177;&#x6709;3&#x4E2A;Button&#x7EC4;&#x4EF6;&#x7684;&#x9875;&#x9762;&#x3002;</p>
+<p>&#x7EC4;&#x6210;&#x9875;&#x9762;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x5C55;&#x793A;&#x51FA;&#x6765;&#x3002;&#x4F46;&#x662F;&#x9875;&#x9762;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x8DEF;&#x7531;&#x6765;&#x8BBF;&#x95EE;&#x624D;&#x53EF;&#x4EE5;&#x5C55;&#x793A;&#xFF0C;&#x4E0B;&#x9762;&#x5C31;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x8DEF;&#x7531;&#x6765;&#x6253;&#x5F00;&#x9875;&#x9762;&#x4E86;&#x3002;&#x6BD4;&#x5982;&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;myForm&#x7EC4;&#x4EF6;&#xFF0C;&#x548C;&#x5176;&#x4ED6;&#x7EC4;&#x4EF6;&#x7EC4;&#x4EF6;&#x6210;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x3002;</p>
 <p>&#x5728;component&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;test/test.vue&#x6587;&#x4EF6;</p>
 <pre><code>&lt;template&gt;
     &lt;div&gt;
-        &lt;Button/&gt;
-        &lt;Button/&gt;
-        &lt;Button/&gt;
+        &lt;myForm/&gt;
+        &lt;myForm1/&gt;
+        &lt;myForm2/&gt;
     &lt;/div&gt;
 &lt;/template&gt;
 &lt;script&gt;
-    import Button from &apos;../../components/top.vue&apos;&#xFF1B;//&#x5982;&#x679C;&#x9700;&#x8981;&#x5F15;&#x7528;Button&#x7EC4;&#x4EF6;
+    import myForm from &apos;../../components/myForm.vue&apos;&#xFF1B;//&#x5982;&#x679C;&#x9700;&#x8981;&#x5F15;&#x7528;myForm&#x7EC4;&#x4EF6;
+    import myForm1 from &apos;../../components/myForm1.vue&apos;&#xFF1B;//&#x5982;&#x679C;&#x9700;&#x8981;&#x5F15;&#x7528;myForm1&#x7EC4;&#x4EF6;
+    import myForm2 from &apos;../../components/myForm2.vue&apos;&#xFF1B;//&#x5982;&#x679C;&#x9700;&#x8981;&#x5F15;&#x7528;myForm2&#x7EC4;&#x4EF6;
     export default {
     }
 &lt;/script&gt;
@@ -352,7 +446,7 @@ export default {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"简单使用","level":"1.3","depth":1,"next":{"title":"权限管理","level":"1.4","depth":1,"path":"docs/权限管理.md","ref":"docs/权限管理.md","articles":[]},"previous":{"title":"开发步骤","level":"1.2.2","depth":2,"path":"docs/开发步骤.md","ref":"docs/开发步骤.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/简单使用.md","mtime":"2018-05-29T15:27:24.819Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-29T15:28:17.015Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"简单使用","level":"1.3","depth":1,"next":{"title":"权限管理","level":"1.4","depth":1,"path":"docs/权限管理.md","ref":"docs/权限管理.md","articles":[]},"previous":{"title":"开发步骤","level":"1.2.2","depth":2,"path":"docs/开发步骤.md","ref":"docs/开发步骤.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["codepen"],"pluginsConfig":{"codepen":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/简单使用.md","mtime":"2018-07-01T15:52:03.654Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-01T15:58:27.362Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -360,6 +454,10 @@ export default {
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-codepen/embed-codepen.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
